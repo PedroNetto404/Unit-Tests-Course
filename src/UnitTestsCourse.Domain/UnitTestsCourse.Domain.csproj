@@ -10,8 +10,4 @@
       <PackageReference Include="ExpectedObjects" Version="3.5.4" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="NovaPasta\" />
-    </ItemGroup>
-
 </Project>

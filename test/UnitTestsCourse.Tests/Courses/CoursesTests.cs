@@ -1,4 +1,6 @@
 ﻿using ExpectedObjects;
+using UnitTestsCourse.Domain.Courses;
+using UnitTestsCourse.Tests.Builders;
 using Xunit;
 
 namespace UnitTestsCourse.Tests.Courses;
@@ -16,11 +18,13 @@ public class CoursesTests
             Price = (decimal)1000
         };
 
-        var course = new Course(
-            expectedCourse.Name,
-            expectedCourse.Hours,
-            expectedCourse.TargetGroup,
-            expectedCourse.Price);
+        var course = 
+            CourseBuilder.Instance
+                .WithName(expectedCourse.Name)
+                .WithHours(expectedCourse.Hours)
+                .WithTargetGroup(expectedCourse.TargetGroup)
+                .WithPrice(expectedCourse.Price)
+                .Build();
 
         expectedCourse.ToExpectedObject().ShouldMatch(course);
     }
@@ -32,11 +36,10 @@ public class CoursesTests
     {
         Assert.Throws<ArgumentException>(() =>
         {
-            var course = new Course(
-                invalidName,
-                (double)80,
-                TargetGroup.Programmer,
-                (decimal)1000);
+            var course = 
+                CourseBuilder.Instance
+                    .WithName(invalidName)
+                    .Build();
         });
     }
 
@@ -47,48 +50,10 @@ public class CoursesTests
     {
         Assert.Throws<ArgumentException>(() =>
         {
-            var course = new Course(
-                "C# Fundamentals",
-                 invalidHours,
-                TargetGroup.Programmer,
-                (decimal)1000);
+            var course = 
+                CourseBuilder.Instance
+                    .WithHours(invalidHours)
+                    .Build();
         });
     }
-}
-
-public enum TargetGroup
-{
-    Programmer,
-    Designer,
-    Manager
-}
-
-public class Course
-{
-    public Course(
-        string name,
-        double hours,
-        TargetGroup targetGroup,
-        decimal price)
-    {
-        if (string.IsNullOrEmpty(name))
-        {
-            throw new ArgumentException("Invalid name");
-        }
-
-        if (hours < 1)
-        {
-            throw new ArgumentException("Invalid hours");
-        }
-
-        Name = name;
-        Hours = hours;
-        TargetGroup = targetGroup;
-        Price = price;
-    }
-
-    public string Name { get; private set; }
-    public double Hours { get; private set; }
-    public TargetGroup TargetGroup { get; private set; }
-    public decimal Price { get; private set; }
 }

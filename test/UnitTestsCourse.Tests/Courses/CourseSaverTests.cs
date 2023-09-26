@@ -8,22 +8,20 @@ namespace UnitTestsCourse.Tests.Courses;
 
 public class CourseSaverTests
 {
-    private readonly CourseDto _courseDto;
-
     #region Setup
+
+    private readonly CourseDto _courseDto;
 
     public CourseSaverTests()
     {
         var faker = new Faker();
 
-        _courseDto = new CourseDto
-        {
-            Description = faker.Lorem.Paragraph(),
-            Hours = faker.Random.Double(1, 100),
-            Name = faker.Random.Word(),
-            Price = faker.Random.Decimal(100, 1000),
-            TargetGroup = faker.PickRandom<TargetGroup>().ToString()
-        };
+        _courseDto = new(
+            faker.Random.Word(),
+            faker.Lorem.Paragraph(),
+            faker.Random.Double(1, 100),
+            faker.PickRandom<TargetGroup>().ToString(),
+            faker.Random.Decimal(100, 1000));
     }
 
     #endregion

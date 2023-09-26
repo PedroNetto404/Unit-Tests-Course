@@ -1,5 +1,6 @@
 ﻿using ExpectedObjects;
 using UnitTestsCourse.Domain.Courses;
+using UnitTestsCourse.Domain.Courses.Exceptions;
 using UnitTestsCourse.Tests.Builders;
 using Xunit;
 
@@ -18,7 +19,7 @@ public class CoursesTests
             Price = (decimal)1000
         };
 
-        var course = 
+        var course =
             CourseBuilder.Instance
                 .WithName(expectedCourse.Name)
                 .WithHours(expectedCourse.Hours)
@@ -26,34 +27,19 @@ public class CoursesTests
                 .WithPrice(expectedCourse.Price)
                 .Build();
 
-        expectedCourse.ToExpectedObject().ShouldMatch(course);
+        expectedCourse.ToExpectedObject()
+                      .ShouldMatch(course);
     }
 
-    [Theory]
-    [InlineData("")]
-    [InlineData(null)]
-    public void CourseCannotHaveNullOrEmptyName(string invalidName)
-    {
-        Assert.Throws<ArgumentException>(() =>
-        {
-            var course = 
-                CourseBuilder.Instance
-                    .WithName(invalidName)
-                    .Build();
-        });
-    }
+    [Theory, InlineData(""), InlineData(null)]
+    public void CourseCannotHaveNullOrEmptyName(string invalidName) =>
+        Assert.Throws<CourseWithInvalidNameException>(() =>
+            CourseBuilder.Instance.WithName(invalidName).Build());
 
-    [Theory]
-    [InlineData(0)]
-    [InlineData(-1)]
-    public void CourseCannotHaveHoursLessThanOne(double invalidHours)
-    {
-        Assert.Throws<ArgumentException>(() =>
-        {
-            var course = 
-                CourseBuilder.Instance
-                    .WithHours(invalidHours)
-                    .Build();
-        });
-    }
+    [Theory, InlineData(0), InlineData(-1)]
+    public void CourseCannotHaveHoursLessThanOne(double invalidHours) =>
+        Assert.Throws<CourseWithInvalidHoursException>(() =>
+            CourseBuilder.Instance.WithHours(invalidHours).Build());
+
+
 }

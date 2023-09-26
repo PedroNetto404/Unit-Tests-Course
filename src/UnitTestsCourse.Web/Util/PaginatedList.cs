@@ -32,7 +32,10 @@
             return new PaginatedList<T>(items, count, pageIndex, pageSize);
         }
 
-        private static List<T> Paginate(List<T> data, int pageIndex, int pageSize) => 
+        private static IEnumerable<T> Paginate(
+            IEnumerable<T> data, 
+            int pageIndex, 
+            int pageSize) => 
             data.Skip(Offset(pageIndex, pageSize))
                 .Take(pageSize)
                 .ToList();

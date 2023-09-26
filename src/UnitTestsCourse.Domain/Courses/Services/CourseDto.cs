@@ -1,4 +1,4 @@
-﻿namespace UnitTestsCourse.Tests.Courses;
+﻿namespace UnitTestsCourse.Domain.Courses.Services;
 
 public record CourseDto(
     string Name,

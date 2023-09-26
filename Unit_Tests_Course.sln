@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestsCourse.Domain", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsCourse.Web", "src\UnitTestsCourse.Web\UnitTestsCourse.Web.csproj", "{6C552EA4-65E1-4435-B14E-480B0AF4A0AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsCourse.Data", "src\UnitTestsCourse.Data\UnitTestsCourse.Data.csproj", "{412769EE-51F6-47B9-BDA7-32D3D6B16AD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6C552EA4-65E1-4435-B14E-480B0AF4A0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C552EA4-65E1-4435-B14E-480B0AF4A0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C552EA4-65E1-4435-B14E-480B0AF4A0AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412769EE-51F6-47B9-BDA7-32D3D6B16AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412769EE-51F6-47B9-BDA7-32D3D6B16AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412769EE-51F6-47B9-BDA7-32D3D6B16AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412769EE-51F6-47B9-BDA7-32D3D6B16AD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,9 @@ Global
 		{08FC0187-7F7B-41AC-B2FB-952805B622F4} = {727DE44D-A66C-4ADB-A6A4-6F68652A39F2}
 		{EAB3C488-EAD6-4C4C-826F-0C4D45963EE5} = {4D654E20-22B6-417E-8396-25A756D9B96F}
 		{6C552EA4-65E1-4435-B14E-480B0AF4A0AC} = {4D654E20-22B6-417E-8396-25A756D9B96F}
+		{412769EE-51F6-47B9-BDA7-32D3D6B16AD7} = {4D654E20-22B6-417E-8396-25A756D9B96F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1327919-0D53-44B9-BBDE-F2AEB1648B89}
 	EndGlobalSection
 EndGlobal

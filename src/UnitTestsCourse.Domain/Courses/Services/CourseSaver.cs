@@ -1,12 +1,13 @@
 ﻿using UnitTestsCourse.Domain.Courses;
+using UnitTestsCourse.Tests.Courses;
 
-namespace UnitTestsCourse.Tests.Courses;
+namespace UnitTestsCourse.Domain.Courses.Services;
 
 public class CourseSaver
 {
     private readonly ICourseRepository _courseRepository;
 
-    public CourseSaver(ICourseRepository courseRepository) => 
+    public CourseSaver(ICourseRepository courseRepository) =>
         _courseRepository = courseRepository;
 
 

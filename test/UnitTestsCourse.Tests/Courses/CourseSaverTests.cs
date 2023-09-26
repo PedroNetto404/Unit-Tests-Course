@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using Moq;
 using UnitTestsCourse.Domain.Courses;
+using UnitTestsCourse.Domain.Courses.Services;
 using UnitTestsCourse.Tests.Builders;
 using Xunit;
 

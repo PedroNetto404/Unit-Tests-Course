@@ -1,4 +1,6 @@
-﻿namespace UnitTestsCourse.Domain.Courses;
+﻿using UnitTestsCourse.Domain.Courses.Exceptions;
+
+namespace UnitTestsCourse.Domain.Courses;
 
 public class Course
 {
@@ -9,15 +11,8 @@ public class Course
         TargetGroup targetGroup,
         decimal price)
     {
-        if (string.IsNullOrEmpty(name))
-        {
-            throw new ArgumentException("Invalid name");
-        }
-
-        if (hours < 1)
-        {
-            throw new ArgumentException("Invalid hours");
-        }
+        CourseWithInvalidHoursException.ThrowIfInvalid(hours);
+        CourseWithInvalidNameException.ThrowIfInvalid(name);
 
         Name = name;
         Description = description;
